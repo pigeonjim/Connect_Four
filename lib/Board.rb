@@ -1,2 +1,4 @@
-class Board ()
+class Board 
+    
+end
     

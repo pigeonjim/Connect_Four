@@ -1,16 +1,19 @@
-require './lib/Cell.rb'
+require '../lib/Cell.rb'
 describe Cell do
-    let (:aCell)  { Cell.new() }
+  before { @aCell = Cell.new(2,3) }
+  context " A cell can be red, blue or empty" do
 
-  context " A cell can be red or blue only" do
     it "Cell can hold red" do
-        expect(@aCell.colour('red')).to eql('red')
+        expect(@aCell.setColour('red')).to eql('red')
     end
     it "Cell can hold blue" do        
-        expect(@aCell.colour('blue')).to eql('blue')
+        expect(@aCell.setColour('blue')).to eql('blue')
+    end
+    it "Cell can be empty" do        
+      expect(@aCell.setColour('empty')).to eql('empty')
     end
     it "Cell can not be green" do
-        expect(@aCell.colour('blue')).to eql('Not valid')
+        expect(@aCell.setColour('green')).to eql('Not valid')
     end
   end
 end
